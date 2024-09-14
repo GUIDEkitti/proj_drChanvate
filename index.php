@@ -1,10 +1,12 @@
 <?php
 session_start();
 include("config.php");
-$Login = "เข้าสู่ระบบ";
+
 $LoginL = "login.php";
 if (isset($_SESSION['user'])) {
     $Login = $_SESSION['user'];
+} else {
+    $Login = "เข้าสู่ระบบ";
 }
 ?>
 

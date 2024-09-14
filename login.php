@@ -53,14 +53,14 @@
                         <div class="card-body">
                             <form action="login_db.php" method="POST">
                                 <div class="mb-3">
-                                    <label for="email" class="form-label">อีเมล</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <label for="user" class="form-label">ชื่อผู้ใช้</label>
+                                    <input type="text" class="form-control" id="user" name="user" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">รหัสผ่าน</label>
                                     <input type="password" class="form-control" id="password" name="password" required>
                                 </div>
-                                <button type="submit" class="btn btn-success">เข้าสู่ระบบ</button>
+                                <button type="submit" class="btn btn-success" name="login_db">เข้าสู่ระบบ</button>
                             </form>
                             <div class="hr-container">
                                 <hr class="line">
@@ -80,13 +80,14 @@
                             สมัครสมาชิก
                         </div>
                         <div class="card-body">
-                            <form action="process_register.php" method="post">
+                            <form id="register-form" action="process_register.php" method="post"
+                                onsubmit="return validatePasswords()">
                                 <div class="mb-3">
-                                    <label for="firstname" class="form-label">First Name</label>
+                                    <label for="firstname" class="form-label">ชื่อ</label>
                                     <input type="text" class="form-control" id="firstname" name="firstname" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="lastname" class="form-label">Last Name</label>
+                                    <label for="lastname" class="form-label">นามสกุล</label>
                                     <input type="text" class="form-control" id="lastname" name="lastname" required>
                                 </div>
                                 <div class="mb-3">
@@ -94,33 +95,21 @@
                                     <input type="email" class="form-control" id="email" name="email" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <label for="password" class="form-label">รหัสผ่าน</label>
+                                    <input type="text" class="form-control" id="password" name="password" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="confirm_password" class="form-label">Confirm Password</label>
+                                    <label for="confirm_password" class="form-label">ยืนยัน รหัสผ่าน</label>
                                     <input type="password" class="form-control" id="confirm_password"
                                         name="confirm_password" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone</label>
+                                    <label for="phone" class="form-label">เบอร์ติดต่อ</label>
                                     <input type="text" class="form-control" id="phone" name="phone" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="address" name="address" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="city" class="form-label">City</label>
-                                    <input type="text" class="form-control" id="city" name="city" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="country" class="form-label">Country</label>
-                                    <input type="text" class="form-control" id="country" name="country" required>
                                 </div>
                                 <button type="submit" class="btn btn-success w-100">สมัครสมาชิก</button>
                             </form>
-                            <p class="mt-3 text-center">มีรหัสอยู่แล้ว ? <a href="#"
+                            <p class="mt-3 text-center">มีสมาชิกอยู่แล้ว ? <a href="#"
                                     onclick="toggleForms()">เข้าสู่ระบบ</a></p>
                         </div>
                     </div>
@@ -137,6 +126,16 @@
             var registerForm = document.getElementById('register-form');
             loginForm.classList.toggle('active');
             registerForm.classList.toggle('active');
+        }
+
+        function validatePasswords() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm_password').value;
+            if (password !== confirmPassword) {
+                alert('ท่านกรอกรหัสไม่ตรงกัน กรุณาลองอีกครั้ง');
+                return false;
+            }
+            return true;
         }
     </script>
 </body>
