@@ -1,12 +1,4 @@
-<?php
-session_start();
-include("config.php");
-$Login = "เข้าสู่ระบบ";
-$LoginL = "login.php";
-if (isset($_SESSION['user'])) {
-    $Login = $_SESSION['user'];
-}
-?>
+<?php include("config.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,14 +13,7 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <body>
-    <?php include("header.php"); ?>
 
-    <?php include("pnrupic.php"); ?>
-
-    <div class="main"></div>
-
-    <?php include("footer.php"); ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

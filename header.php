@@ -23,7 +23,7 @@
                     <a class="nav-link" href="#">รายละเอียดห้องพัก</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">เข้าสู่ระบบ</a>
+                    <a class="nav-link" href="<?php echo $LoginL; ?>"><?php echo $Login; ?></a>
                 </li>
             </ul>
         </div>

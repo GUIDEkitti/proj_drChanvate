@@ -27,7 +27,7 @@ $randomActiveIndex = rand(0, $numRows - 1);
             ?>
             <div class="container carousel-item mt-10 <?php echo $activeClass; ?>">
                 <img src="<?php echo $data['PnruPicLink']; ?>" class="d-block w-100" alt="Slide <?php echo ($i + 1); ?>"
-                    width="450" height="450">
+                    width="912px" height="450px">
             </div>
             <?php
             $i++;
