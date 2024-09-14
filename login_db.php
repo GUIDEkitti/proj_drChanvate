@@ -29,7 +29,7 @@ if (isset($_POST['login_db'])) {
                     echo "<script>alert('ผู้ใช้ยังไม่ผ่านการลงทะเบียน....'); window.location.href='login.php';</script>";
                 }
             } else {
-                echo "<script>alert('ผู้ใช้ยังไม่ผ่านการลงทะเบียน...'); window.location.href='login.php';</script>";
+                echo "<script>alert('ผู้ใช้ $user ยังไม่ผ่านการยืนยัน...'); window.location.href='login.php';</script>";
             }
         } else {
             echo "<script>alert('ผู้ใช้หรือรหัสผ่านไม่ถูกต้อง..'); window.location.href='login.php';</script>";

@@ -47,8 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_close($stmt_check2);
     }
 
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // hash the password
+    /* $hashed_password = password_hash($password, PASSWORD_DEFAULT); */
+    //no hash
+    $hashed_password = $password;
 
     $sql = "INSERT INTO Guests (FirstName, LastName, UserName, Email, Passkey, Phone) VALUES (?, ?, ?, ?, ?, ?)";
     if ($stmt = mysqli_prepare($conn, $sql)) {
