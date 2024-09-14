@@ -37,8 +37,8 @@ if (isset($_POST['login_db'])) {
     } else {
         echo "<script>alert('ผู้ใช้หรือรหัสผ่านไม่ถูกต้อง.'); window.location.href='login.php';</script>";
     }
-}else{
-    echo "<script>alert('กลับไปหน้าแรก'); window.location.href='login.php';</script>";
+} else {
+    echo "<script>window.location.href='index.php';</script>";
 }
 
 /* if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -80,6 +80,8 @@ if (isset($_POST['login_db'])) {
     }
 
     $stmt->close();
+} else {
+    echo "<script>window.location.href='index.php';</script>";
 } */
 
 

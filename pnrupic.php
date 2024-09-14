@@ -46,3 +46,4 @@ $randomActiveIndex = rand(0, $numRows - 1);
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+<?php $conn->close(); ?>

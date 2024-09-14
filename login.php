@@ -1,5 +1,8 @@
 <?php include("config.php"); ?>
-<?php $Login = "" ?>
+<?php
+$Login = "";
+$conn->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +61,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">รหัสผ่าน</label>
-                                    <input type="password" class="form-control" id="password" name="password" required>
+                                    <input type="password" class="form-control" id="" name="password" required>
                                 </div>
                                 <button type="submit" class="btn btn-success" name="login_db">เข้าสู่ระบบ</button>
                             </form>
@@ -80,7 +83,7 @@
                             สมัครสมาชิก
                         </div>
                         <div class="card-body">
-                            <form id="register-form" action="process_register.php" method="post"
+                            <form id="register-form" action="register_db.php" method="post"
                                 onsubmit="return validatePasswords()">
                                 <div class="mb-3">
                                     <label for="firstname" class="form-label">ชื่อ</label>
@@ -89,6 +92,10 @@
                                 <div class="mb-3">
                                     <label for="lastname" class="form-label">นามสกุล</label>
                                     <input type="text" class="form-control" id="lastname" name="lastname" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">ชื่อผู้ใช้</label>
+                                    <input type="text" class="form-control" id="username" name="username" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
@@ -100,7 +107,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="confirm_password" class="form-label">ยืนยัน รหัสผ่าน</label>
-                                    <input type="password" class="form-control" id="confirm_password"
+                                    <input type="text" class="form-control" id="confirm_password"
                                         name="confirm_password" required>
                                 </div>
                                 <div class="mb-3">
@@ -131,7 +138,7 @@
         function validatePasswords() {
             var password = document.getElementById('password').value;
             var confirmPassword = document.getElementById('confirm_password').value;
-            if (password !== confirmPassword) {
+            if (password != confirmPassword) {
                 alert('ท่านกรอกรหัสไม่ตรงกัน กรุณาลองอีกครั้ง');
                 return false;
             }
@@ -141,3 +148,4 @@
 </body>
 
 </html>
+<?php $conn->close(); ?>

@@ -53,3 +53,4 @@ if (mysqli_num_rows($res_quicklink) > 0) {
         </div>
     </div>
 </footer>
+<?php $conn->close(); ?>

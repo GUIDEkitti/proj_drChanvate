@@ -29,3 +29,4 @@
         </div>
     </div>
 </nav>
+<?php $conn->close(); ?>
