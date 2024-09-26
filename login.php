@@ -14,6 +14,10 @@ $conn->close();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <style>
         .hr-container {
             display: flex;
@@ -45,34 +49,68 @@ $conn->close();
 <body>
     <?php include("header.php"); ?>
 
-    <div class="container mt-5">
+
+
+    <div class="container mt-5" style="height: calc(100vh - 253px - 56px - 6rem);">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-sm-8 col-md-5 col-xl-4">
                 <div class="form-container active" id="login-form">
                     <div class="card">
-                        <div class="card-header">
+                        <!-- <div class="card-header">
                             เข้าสู่ระบบ
+                        </div> -->
+
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Some text in the modal.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
+
                         <div class="card-body">
                             <form action="login_db.php" method="POST">
-                                <div class="mb-3">
-                                    <label for="user" class="form-label">ชื่อผู้ใช้</label>
-                                    <input type="text" class="form-control" id="user" name="user" required>
+                                <div class="py-3">
+                                    <!-- <label for="user" class="form-label">ชื่อผู้ใช้</label> -->
+                                    <input type="text" class="form-control" id="user" name="user" placeholder="ชื่อผู้ใช้" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">รหัสผ่าน</label>
-                                    <input type="password" class="form-control" id="" name="password" required>
+                                    <!-- <label for="password" class="form-label">รหัสผ่าน</label> -->
+                                    <input type="password" class="form-control" id="" name="password" placeholder="รหัสผ่าน" required>
                                 </div>
-                                <button type="submit" class="btn btn-success" name="login_db">เข้าสู่ระบบ</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                    Launch demo modal
+                                </button>
+                                <!-- <button type="submit" class="btn btn-success w-100" name="login_db">เข้าสู่ระบบ</button> -->
                             </form>
-                            <div class="hr-container">
+                            <div class="text-center">
+                                <a href="#" class="text-reset">ลืมรหัสผ่าน?</a>
+                            </div>
+                            <hr class="border-bottom border border-dark">
+                            <!-- <div class="hr-container">
                                 <hr class="line">
                                 <div class="text">เข้าสู่ระบบไม่ได้?</div>
                                 <hr class="line">
-                            </div>
-                            <div class="d-flex justify-content-between py-3">
-                                <a href="#" class="btn btn-primary" onclick="toggleForms()">สมัครสมาชิก</a>
-                                <a href="#" class="btn btn-secondary">ลืมรหัสผ่าน</a>
+                            </div> -->
+                            <div class="pb-3 text-center">
+                                <a href="#" class="btn btn-primary" onclick="toggleForms()">สร้างบัญชีผู้ใช้</a>
+                                <!-- <a href="#" class="btn btn-secondary">ลืมรหัสผ่าน?</a> -->
                             </div>
                         </div>
                     </div>
@@ -121,6 +159,25 @@ $conn->close();
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -131,6 +188,12 @@ $conn->close();
         function toggleForms() {
             var loginForm = document.getElementById('login-form');
             var registerForm = document.getElementById('register-form');
+            loginForm.classList.toggle('active');
+            registerForm.classList.toggle('active');
+        }
+
+        function alertError() {
+            var loginForm = document.getElementById('exampleModalCenter');
             loginForm.classList.toggle('active');
             registerForm.classList.toggle('active');
         }
