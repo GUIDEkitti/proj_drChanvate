@@ -60,30 +60,6 @@ $conn->close();
                             เข้าสู่ระบบ
                         </div> -->
 
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Modal Header</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Some text in the modal.</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
                         <div class="card-body">
                             <form action="login_db.php" method="POST">
                                 <div class="py-3">
@@ -94,10 +70,7 @@ $conn->close();
                                     <!-- <label for="password" class="form-label">รหัสผ่าน</label> -->
                                     <input type="password" class="form-control" id="" name="password" placeholder="รหัสผ่าน" required>
                                 </div>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                    Launch demo modal
-                                </button>
-                                <!-- <button type="submit" class="btn btn-success w-100" name="login_db">เข้าสู่ระบบ</button> -->
+                                <button type="submit" class="btn btn-success w-100" name="login_db">เข้าสู่ระบบ</button>
                             </form>
                             <div class="text-center">
                                 <a href="#" class="text-reset">ลืมรหัสผ่าน?</a>
